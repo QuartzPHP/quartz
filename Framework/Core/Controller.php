@@ -61,7 +61,9 @@ class Controller
     }
 
     public function View($model = array(), $viewName = null, $masterView = null) {
-        $viewName = is_null($viewName) ? ACTION : $viewName;
+        if (is_null($viewName)) {
+            $viewName = ACTION;
+        }
 
         $viewFile = sprintf("Application/%s/View/%s/%s.php", ROOTAREA, CONTROLLER, $viewName);
         if (is_file($viewFile)) {
@@ -91,7 +93,9 @@ class Controller
     }
 
     public function FullView($model = array(), $viewName = null) {
-        $viewName = is_null($viewName) ? ACTION : $viewName;
+        if (is_null($viewName)) {
+            $viewName = ACTION;
+        }
 
         $viewFile = sprintf("Application/%s/View/%s/%s.php", ROOTAREA, CONTROLLER, $viewName);
         if (is_file($viewFile)) {
