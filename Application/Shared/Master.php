@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Quartz says - Hello world!</title>
+  <title>Quartz</title>
+  <meta name="description" content="Quartz, free framework.">
+  <meta name="keywords" content="framework, quartz, quartz framework">
   <link rel="stylesheet" href="/Assets/Css/main.css">
 </head>
 <body>

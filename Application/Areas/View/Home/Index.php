@@ -34,7 +34,7 @@ class Index extends \MainView {
     function CenterColumn()
     { /*******************************************************/ ?>
   
-    <h1>Hello, world!</h1>
+    <div class="title">Welcome to Quartz framework!</div>
 
     <?php /*******************************************************/ }
 
