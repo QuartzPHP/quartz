@@ -9,18 +9,7 @@
 </head>
 <body>
 
-  <section class="page-header">
-    <?= $this->View->HeaderContent(); ?>
-  </section>
-
-  <section class="page-body">
-    <?= $this->View->CenterColumn(); ?>
-  </section>
-
-  <footer>
-    <?= $this->View->FooterContent(); ?>
-  </footer>
+  <?= $this->View->Content(); ?>
   
-  <?= $this->View->Javascript(); ?>
 </body>
 </html>
