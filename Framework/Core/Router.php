@@ -9,6 +9,17 @@ class Router {
         self::$routes[] = new Route($route, $defaults);
     }
 
+    public static function Home($route) {
+        $route = new Route($route);
+        $defaults = array();
+        foreach($route->getParameters() as $param_container) {
+            foreach ($param_container as $param) {
+                $defaults[$param->getName()] = $param->getPrerequisite();
+            }
+        }
+        self::$routes["home"] = new Route(null, $defaults);
+    }
+
     // Semi specific, both application / framework will want to use this. Place HttpError folder in root?
     public static function Error($code, $type, $name) {
         try {
@@ -43,13 +54,13 @@ class Router {
         if (isset($map["action"]) && $map["action"] == "") unset($map["action"]);
         if (isset($map["action"])) $map["action"] = str_replace("-", "_", $map["action"]);
         
-        $defaultMap = array(
+        $map += array(
             "area" => array(),
             "controller" => "home",
             "action" => "index"
         );
 
-        $_GET = array_merge($_GET, $map + $defaultMap);
+        $_GET = array_merge($_GET, $map);
 
         define('ROOTAREA', self::GetRootArea());
         define("CONTROLLER", ucwords($_GET["controller"]));
@@ -125,6 +136,11 @@ class Router {
                     $map[$param->getName()] = $route->getDefaultFor($param->getName());
                 }
 
+                break;
+
+            case Parameter::$States['NO_PREREQUISITE_NO_NAME']:
+
+                return true;
                 break;
             
             default:

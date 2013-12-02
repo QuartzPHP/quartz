@@ -15,7 +15,6 @@ class Route {
                 $this->Parameters[$param_key][] = new Parameter($param);
             }
         }
-        
         $this->Defaults = $defaults;
     }
 
