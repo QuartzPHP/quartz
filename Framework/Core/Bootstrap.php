@@ -2,6 +2,7 @@
 chdir('../../');
 
 require_once "Framework/Core/Router.php";
+require_once "Framework/Plugins/Plugins.php";
 
 $uri_params = explode("/", $_GET["uri"]);
 if (end($uri_params) == "") {
