@@ -12,6 +12,7 @@
   <section class="page-header">
     <?= $this->View->HeaderContent(); ?>
   </section>
+  
   <section class="page-body">
     <?= $this->View->CenterColumn(); ?>
   </section>
@@ -21,5 +22,6 @@
   </footer>
   
   <?= $this->View->Javascript(); ?>
+  <?= $this->Plugin("FontAwesome"); ?>
 </body>
 </html>
